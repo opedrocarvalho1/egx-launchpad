@@ -89,7 +89,7 @@ const Hero = () => {
             <span className="text-lg md:text-xl">✨</span>
             <p className="text-xs sm:text-sm md:text-base">
               Metodologias aplicadas em negócios que somam{" "}
-              <span className="text-egx-blue font-semibold">R$ 100M+</span>{" "}
+              <span className="text-egx-blue font-semibold">R$ 200M+</span>{" "}
               em faturamento anual.
             </p>
           </motion.div>
