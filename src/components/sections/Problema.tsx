@@ -41,7 +41,7 @@ const itemVariants = {
 
 const Problema = () => {
   return (
-    <section id="problema" className="bg-background py-16 md:py-24">
+    <section id="problema" className="bg-background py-12 md:py-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
         <motion.h2
@@ -49,11 +49,11 @@ const Problema = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-3xl sm:text-4xl md:text-5xl font-bold text-egx-dark text-center mb-6 leading-tight"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-egx-dark text-center mb-4 md:mb-6 leading-tight"
         >
           O problema não é faturamento.
           <br />
-          <span className="text-egx-blue">É falta de clareza</span> sobre o que está por trás dos números.
+          <span className="text-egx-blue">É falta de clareza</span> sobre os números.
         </motion.h2>
 
         {/* Intro Text */}
@@ -62,7 +62,7 @@ const Problema = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-lg md:text-xl text-muted-foreground text-center max-w-3xl mx-auto mb-12 md:mb-16"
+          className="text-base md:text-lg lg:text-xl text-muted-foreground text-center max-w-3xl mx-auto mb-8 md:mb-16"
         >
           A realidade da maioria das PMEs brasileiras é parecida:
         </motion.p>
@@ -79,17 +79,17 @@ const Problema = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="p-6 md:p-8 bg-secondary/50 rounded-2xl border border-border hover:border-egx-blue hover:shadow-lg transition-all duration-300 group"
+              className="p-4 sm:p-6 md:p-8 bg-secondary/50 rounded-xl md:rounded-2xl border border-border hover:border-egx-blue hover:shadow-lg transition-all duration-300 group"
             >
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-egx-blue/10 rounded-xl group-hover:bg-egx-blue/20 transition-colors">
-                  <card.icon className="h-6 w-6 text-egx-blue" />
+              <div className="flex items-start gap-3 md:gap-4">
+                <div className="p-2 sm:p-3 bg-egx-blue/10 rounded-lg md:rounded-xl group-hover:bg-egx-blue/20 transition-colors flex-shrink-0">
+                  <card.icon className="h-5 w-5 md:h-6 md:w-6 text-egx-blue" />
                 </div>
-                <div>
-                  <h3 className="text-lg md:text-xl font-bold text-foreground mb-2">
+                <div className="min-w-0">
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-foreground mb-1 md:mb-2">
                     {card.title}
                   </h3>
-                  <p className="text-muted-foreground">{card.description}</p>
+                  <p className="text-sm md:text-base text-muted-foreground">{card.description}</p>
                 </div>
               </div>
             </motion.div>
@@ -102,17 +102,17 @@ const Problema = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-12 md:mt-16 text-center"
+          className="mt-8 md:mt-16 text-center"
         >
-          <p className="text-lg md:text-xl text-foreground font-semibold mb-4">
+          <p className="text-base md:text-lg lg:text-xl text-foreground font-semibold mb-3 md:mb-4">
             O resultado é um ciclo perigoso:
           </p>
-          <p className="text-base md:text-lg text-muted-foreground max-w-4xl mx-auto mb-8">
+          <p className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-4xl mx-auto mb-6 md:mb-8 px-2">
             Crescimento com baixa visibilidade financeira, aumento de risco e sensação
             constante de que "o dinheiro entra, mas não sobra".
           </p>
-          <div className="inline-block px-6 py-3 bg-egx-blue/10 rounded-full">
-            <p className="text-egx-blue font-semibold">
+          <div className="inline-block px-4 sm:px-6 py-2 sm:py-3 bg-egx-blue/10 rounded-full">
+            <p className="text-sm md:text-base text-egx-blue font-semibold">
               A EGX nasce para mudar exatamente isso. ✨
             </p>
           </div>
