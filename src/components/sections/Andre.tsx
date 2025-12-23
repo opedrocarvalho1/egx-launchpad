@@ -57,18 +57,18 @@ const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) =
 
 const Andre = () => {
   return (
-    <section id="andre" className="bg-background py-16 md:py-24">
+    <section id="andre" className="bg-background py-12 md:py-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12 md:mb-16">
+        <div className="text-center mb-8 md:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="inline-block px-4 py-2 bg-egx-blue/10 rounded-full mb-4"
+            className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-egx-blue/10 rounded-full mb-3 md:mb-4"
           >
-            <span className="text-egx-blue font-semibold">🤖 Nosso produto principal</span>
+            <span className="text-egx-blue font-semibold text-sm md:text-base">🤖 Nosso produto principal</span>
           </motion.div>
 
           <motion.h2
@@ -76,11 +76,9 @@ const Andre = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6 leading-tight px-2"
           >
-            Conheça o <span className="text-egx-blue">anDRE</span>: o analista financeiro
-            <br className="hidden md:block" />
-            {" "}que trabalha 24h dentro do WhatsApp
+            Conheça o <span className="text-egx-blue">anDRE</span>: o analista financeiro 24h no WhatsApp
           </motion.h2>
 
           <motion.p
@@ -88,7 +86,7 @@ const Andre = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto"
+            className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-2"
           >
             O anDRE atua como um analista financeiro digital, sempre disponível
             para traduzir dados em decisões.
@@ -101,26 +99,26 @@ const Andre = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-secondary/50 rounded-3xl p-6 md:p-10 lg:p-12 mb-12"
+          className="bg-secondary/50 rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-10 lg:p-12 mb-8 md:mb-12"
         >
-          <p className="text-base md:text-lg text-foreground leading-relaxed mb-6">
+          <p className="text-sm md:text-base lg:text-lg text-foreground leading-relaxed mb-4 md:mb-6">
             Em vez de planilhas espalhadas, relatórios atrasados e interpretações
             subjetivas, o anDRE:
           </p>
 
-          <ul className="space-y-4">
+          <ul className="space-y-3 md:space-y-4">
             {checklistItems.map((item, index) => (
-              <li key={index} className="flex items-start gap-3">
+              <li key={index} className="flex items-start gap-2 md:gap-3">
                 <div className="flex-shrink-0 mt-0.5">
-                  <Check className="h-5 w-5 text-egx-blue" />
+                  <Check className="h-4 w-4 md:h-5 md:w-5 text-egx-blue" />
                 </div>
-                <span className="text-muted-foreground">{item}</span>
+                <span className="text-sm md:text-base text-muted-foreground">{item}</span>
               </li>
             ))}
           </ul>
 
-          <div className="mt-8 p-5 md:p-6 bg-background rounded-xl border-l-4 border-egx-blue">
-            <p className="text-foreground italic text-base md:text-lg">
+          <div className="mt-6 md:mt-8 p-4 md:p-6 bg-background rounded-lg md:rounded-xl border-l-4 border-egx-blue">
+            <p className="text-foreground italic text-sm md:text-base lg:text-lg">
               "O anDRE não opina. Ele mostra a realidade. A decisão continua sendo sua,
               mas agora com clareza de cenário."
             </p>
@@ -133,23 +131,23 @@ const Andre = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 gap-4 md:gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6"
         >
           {features.map((feature, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              className="p-5 md:p-6 bg-background rounded-xl border border-border hover:border-egx-blue hover:shadow-md transition-all duration-300 group"
+              className="p-4 md:p-6 bg-background rounded-lg md:rounded-xl border border-border hover:border-egx-blue hover:shadow-md transition-all duration-300 group"
             >
-              <div className="flex items-start gap-4">
-                <div className="p-2.5 bg-egx-blue/10 rounded-lg group-hover:bg-egx-blue/20 transition-colors">
-                  <feature.icon className="h-5 w-5 text-egx-blue" />
+              <div className="flex items-start gap-3 md:gap-4">
+                <div className="p-2 md:p-2.5 bg-egx-blue/10 rounded-lg group-hover:bg-egx-blue/20 transition-colors flex-shrink-0">
+                  <feature.icon className="h-4 w-4 md:h-5 md:w-5 text-egx-blue" />
                 </div>
-                <div>
-                  <h3 className="text-base md:text-lg font-bold text-foreground mb-1">
+                <div className="min-w-0">
+                  <h3 className="text-sm md:text-base lg:text-lg font-bold text-foreground mb-1">
                     {feature.title}
                   </h3>
-                  <p className="text-sm md:text-base text-muted-foreground">
+                  <p className="text-xs md:text-sm lg:text-base text-muted-foreground">
                     {feature.description}
                   </p>
                 </div>
@@ -164,15 +162,15 @@ const Andre = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center mt-10 md:mt-12"
+          className="text-center mt-8 md:mt-12"
         >
-          <Button asChild variant="hero" size="xl">
+          <Button asChild variant="hero" size="xl" className="w-full sm:w-auto">
             <a href="#formulario" onClick={(e) => scrollToSection(e, "#formulario")}>
               Quero testar o anDRE por 7 dias
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
             </a>
           </Button>
-          <p className="text-sm text-muted-foreground mt-4">
+          <p className="text-xs md:text-sm text-muted-foreground mt-3 md:mt-4">
             Sem compromisso • Acompanhamento guiado
           </p>
         </motion.div>
