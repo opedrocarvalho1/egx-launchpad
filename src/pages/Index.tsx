@@ -4,6 +4,10 @@ import Problema from "@/components/sections/Problema";
 import QuemSomos from "@/components/sections/QuemSomos";
 import Andre from "@/components/sections/Andre";
 import ComoFunciona from "@/components/sections/ComoFunciona";
+import ParaQuemE from "@/components/sections/ParaQuemE";
+import EstudosCaso from "@/components/sections/EstudosCaso";
+import FAQ from "@/components/sections/FAQ";
+import FormularioSecao from "@/components/sections/FormularioSecao";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -16,7 +20,10 @@ const Index = () => {
         <QuemSomos />
         <Andre />
         <ComoFunciona />
-        {/* Próximas seções: Formulário virá na fase 3 */}
+        <ParaQuemE />
+        <EstudosCaso />
+        <FAQ />
+        <FormularioSecao />
       </main>
       <Footer />
     </div>
