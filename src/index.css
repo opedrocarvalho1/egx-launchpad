@@ -38,13 +38,14 @@
 
     --radius: 0.5rem;
 
-    /* Custom luxury tokens */
-    --gold: 42 80% 55%;
+    /* Custom luxury tokens - Conforme Manual de Marca EGX */
+    --gold: 42 80% 55%; /* #C9A24C */
     --gold-light: 42 70% 70%;
     --gold-dark: 42 85% 40%;
     --cream: 40 20% 95%;
     --charcoal: 30 10% 8%;
     --charcoal-light: 30 8% 15%;
+    --navy-blue: 214 75% 16%; /* #0A1F44 - Cor complementar do manual */
 
     /* Gradients */
     --gradient-gold: linear-gradient(135deg, hsl(42 80% 55%), hsl(42 70% 45%));
@@ -80,14 +81,14 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Instrument Sans', 'Inter', sans-serif;
+    font-family: 'Open Sans', 'Inter', sans-serif;
     overflow-x: hidden;
     width: 100%;
   }
 
-  /* Typography hierarchy */
+  /* Typography hierarchy - Conforme Manual de Marca EGX */
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cinzel', 'Trajan Pro', serif;
     @apply font-medium tracking-tight;
   }
 
@@ -113,14 +114,14 @@
                 linear-gradient(135deg, hsl(42 80% 55% / 0.3), hsl(42 80% 55% / 0.05)) border-box;
   }
 
-  /* Editorial text styles */
+  /* Editorial text styles - Conforme Manual de Marca */
   .text-display {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cinzel', 'Trajan Pro', serif;
     @apply tracking-tight leading-[1.1];
   }
 
   .text-body {
-    font-family: 'Instrument Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     @apply leading-relaxed;
   }
 

@@ -57,17 +57,18 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // Luxury Brand Colors
-        gold: "hsl(var(--gold))",
+        // Luxury Brand Colors - Conforme Manual de Marca EGX
+        gold: "hsl(var(--gold))", // #C9A24C
         "gold-light": "hsl(var(--gold-light))",
         "gold-dark": "hsl(var(--gold-dark))",
         cream: "hsl(var(--cream))",
         charcoal: "hsl(var(--charcoal))",
         "charcoal-light": "hsl(var(--charcoal-light))",
+        "navy-blue": "hsl(var(--navy-blue))", // #0A1F44
       },
       fontFamily: {
-        display: ['Playfair Display', 'serif'],
-        sans: ['Instrument Sans', 'Inter', 'sans-serif'],
+        display: ['Cinzel', 'Trajan Pro', 'serif'], // Conforme Manual de Marca EGX
+        sans: ['Open Sans', 'Inter', 'sans-serif'], // Conforme Manual de Marca EGX
       },
       fontSize: {
         'display-xl': ['5rem', { lineHeight: '1.05', letterSpacing: '-0.03em' }],

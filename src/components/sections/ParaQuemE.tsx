@@ -18,10 +18,13 @@ export default function ParaQuemE() {
   return (
     <section id="para-quem" className="relative py-24 md:py-32 overflow-hidden bg-secondary">
       {/* Background Image */}
-      <div className="absolute inset-0 pointer-events-none">
-        <img 
-          src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1920&q=80" 
-          alt="Business professionals"
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <img
+          src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1920&q=80&auto=format&fit=crop"
+          alt=""
+          loading="lazy"
+          width="1920"
+          height="1080"
           className="w-full h-full object-cover opacity-5"
         />
       </div>

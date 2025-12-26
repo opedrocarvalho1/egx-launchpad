@@ -18,10 +18,14 @@ const Hero = () => {
     >
       {/* Background Image */}
       <div className="absolute inset-0">
-        <img 
-          src="https://images.unsplash.com/photo-1560472355-536de3962603?w=1920&q=80" 
-          alt="Business analytics background"
-          className="w-full h-full object-cover opacity-20"
+        <img
+          src="https://images.unsplash.com/photo-1560472355-536de3962603?w=1920&q=80&auto=format&fit=crop"
+          alt="Análise financeira e dados de negócios em gráficos modernos"
+          loading="eager"
+          fetchPriority="high"
+          width="1920"
+          height="1080"
+          className="w-full h-full object-cover opacity-30"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
       </div>

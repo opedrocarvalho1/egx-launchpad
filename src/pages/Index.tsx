@@ -9,12 +9,16 @@ import EstudosCaso from "@/components/sections/EstudosCaso";
 import FAQ from "@/components/sections/FAQ";
 import FormularioSecao from "@/components/sections/FormularioSecao";
 import Footer from "@/components/Footer";
+import CookieBanner from "@/components/CookieBanner";
+import ScrollProgress from "@/components/ScrollProgress";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 
 const Index = () => {
   return (
     <div className="font-outfit bg-background min-h-screen">
+      <ScrollProgress />
       <Header />
-      <main>
+      <main id="main-content">
         <Hero />
         <Problema />
         <QuemSomos />
@@ -26,6 +30,8 @@ const Index = () => {
         <FormularioSecao />
       </main>
       <Footer />
+      <CookieBanner />
+      <WhatsAppFloat />
     </div>
   );
 };

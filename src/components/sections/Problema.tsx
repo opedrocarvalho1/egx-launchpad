@@ -31,10 +31,13 @@ const Problema = () => {
       <div className="absolute inset-0 bg-secondary" />
       
       {/* Background Image */}
-      <div className="absolute inset-0 pointer-events-none">
-        <img 
-          src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1920&q=80" 
-          alt="Business stress"
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <img
+          src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1920&q=80&auto=format&fit=crop"
+          alt=""
+          loading="lazy"
+          width="1920"
+          height="1080"
           className="w-full h-full object-cover opacity-5"
         />
       </div>
