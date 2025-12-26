@@ -118,8 +118,8 @@ const Andre = () => {
 
           <div className="mt-6 md:mt-8 p-4 md:p-6 bg-background rounded-lg md:rounded-xl border-l-4 border-egx-blue">
             <p className="text-foreground italic text-sm md:text-base lg:text-lg">
-              "O anDRE te dá clareza de suas despesas e margem de lucro real, ele te fornece dados para tomar decisões
-              sem achismo."
+              "“Com o anDRE, você enxerga suas despesas e a margem real do negócio, e toma decisões com dados, não no
+              achismo.”"
             </p>
           </div>
         </motion.div>
