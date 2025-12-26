@@ -22,6 +22,15 @@ const pillars = [
 const QuemSomos = () => {
   return (
     <section id="quem-somos" className="relative py-24 md:py-32 overflow-hidden bg-background">
+      {/* Background Image */}
+      <div className="absolute inset-0 pointer-events-none">
+        <img 
+          src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1920&q=80" 
+          alt="Team collaboration"
+          className="w-full h-full object-cover opacity-5"
+        />
+      </div>
+      
       {/* Decorative elements */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
