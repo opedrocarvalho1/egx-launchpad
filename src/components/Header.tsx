@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, ChevronDown, X } from "lucide-react";
+import { Menu, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -9,13 +9,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import { Badge } from "@/components/ui/badge";
+import { motion } from "framer-motion";
 
 const navLinks = [
   { label: "Início", href: "#inicio" },
   { label: "Para Quem É", href: "#para-quem" },
-  { label: "Estudos de Caso", href: "#estudos" },
-  { label: "Conteúdos", href: "#conteudos" },
-  { label: "Sobre", href: "#sobre" },
+  { label: "Resultados", href: "#resultados" },
+  { label: "Sobre", href: "#quem-somos" },
 ];
 
 const solutionItems = [
@@ -45,22 +45,28 @@ const Header = () => {
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <motion.header
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-background/98 backdrop-blur-md shadow-md border-b border-border"
-          : "bg-background backdrop-blur-none"
+          ? "bg-background/95 backdrop-blur-md border-b border-border/50"
+          : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20 lg:h-24">
           {/* Logo */}
           <a 
             href="#inicio" 
             onClick={(e) => scrollToSection(e, "#inicio")}
-            className="text-2xl md:text-3xl font-bold text-egx-dark hover:text-egx-blue transition-colors"
+            className="relative group"
           >
-            EGX
+            <span className="font-display text-2xl lg:text-3xl font-semibold text-foreground tracking-tight">
+              EGX
+            </span>
+            <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
           </a>
 
           {/* Desktop Navigation */}
@@ -68,28 +74,28 @@ const Header = () => {
             <a
               href="#inicio"
               onClick={(e) => scrollToSection(e, "#inicio")}
-              className="px-4 py-2 text-sm font-medium text-foreground hover:text-egx-blue transition-colors rounded-lg hover:bg-muted"
+              className="px-5 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300"
             >
               Início
             </a>
 
             {/* Solutions Dropdown */}
             <DropdownMenu>
-              <DropdownMenuTrigger className="px-4 py-2 text-sm font-medium text-foreground hover:text-egx-blue transition-colors rounded-lg hover:bg-muted flex items-center gap-1 outline-none">
+              <DropdownMenuTrigger className="px-5 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 flex items-center gap-1.5 outline-none">
                 Soluções
-                <ChevronDown className="h-4 w-4" />
+                <ChevronDown className="h-4 w-4 opacity-60" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="start" className="w-56 bg-popover border border-border shadow-lg">
+              <DropdownMenuContent align="start" className="w-56 bg-card/95 backdrop-blur-xl border-border/50 shadow-elevated">
                 {solutionItems.map((item) => (
                   <DropdownMenuItem key={item.label} asChild>
                     <a
                       href={item.href}
                       onClick={(e) => scrollToSection(e, item.href)}
-                      className="flex items-center justify-between cursor-pointer"
+                      className="flex items-center justify-between cursor-pointer text-muted-foreground hover:text-foreground"
                     >
                       <span>{item.label}</span>
                       {item.badge && (
-                        <Badge variant="secondary" className="text-xs bg-muted text-muted-foreground">
+                        <Badge variant="secondary" className="text-xs bg-muted/50 text-muted-foreground border-0">
                           {item.badge}
                         </Badge>
                       )}
@@ -104,7 +110,7 @@ const Header = () => {
                 key={link.label}
                 href={link.href}
                 onClick={(e) => scrollToSection(e, link.href)}
-                className="px-4 py-2 text-sm font-medium text-foreground hover:text-egx-blue transition-colors rounded-lg hover:bg-muted"
+                className="px-5 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300"
               >
                 {link.label}
               </a>
@@ -113,9 +119,12 @@ const Header = () => {
 
           {/* Desktop CTA */}
           <div className="hidden lg:block">
-            <Button asChild size="default">
+            <Button 
+              asChild 
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium px-6 h-11 rounded-full transition-all duration-300 hover:shadow-soft"
+            >
               <a href="#formulario" onClick={(e) => scrollToSection(e, "#formulario")}>
-                Fale com um especialista
+                Fale conosco
               </a>
             </Button>
           </div>
@@ -123,31 +132,31 @@ const Header = () => {
           {/* Mobile Menu */}
           <Sheet>
             <SheetTrigger asChild className="lg:hidden">
-              <Button variant="ghost" size="icon">
-                <Menu className="h-6 w-6" />
+              <Button variant="ghost" size="icon" className="text-foreground hover:bg-muted/50">
+                <Menu className="h-5 w-5" />
                 <span className="sr-only">Abrir menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[350px] bg-background">
-              <div className="flex flex-col h-full">
-                <div className="flex items-center justify-between mb-8">
-                  <span className="text-2xl font-bold text-egx-dark">EGX</span>
+            <SheetContent side="right" className="w-full max-w-sm bg-background border-l border-border/50">
+              <div className="flex flex-col h-full pt-8">
+                <div className="mb-12">
+                  <span className="font-display text-2xl font-semibold text-foreground">EGX</span>
                 </div>
 
-                <nav className="flex flex-col gap-2">
+                <nav className="flex flex-col gap-1">
                   <SheetClose asChild>
                     <a
                       href="#inicio"
                       onClick={(e) => scrollToSection(e, "#inicio")}
-                      className="px-4 py-3 text-base font-medium text-foreground hover:text-egx-blue hover:bg-muted rounded-lg transition-colors"
+                      className="px-4 py-4 text-lg font-medium text-muted-foreground hover:text-foreground transition-colors border-b border-border/30"
                     >
                       Início
                     </a>
                   </SheetClose>
 
                   {/* Solutions Section */}
-                  <div className="px-4 py-2">
-                    <span className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
+                  <div className="px-4 py-3 border-b border-border/30">
+                    <span className="text-xs font-medium text-primary uppercase tracking-widest">
                       Soluções
                     </span>
                   </div>
@@ -156,11 +165,11 @@ const Header = () => {
                       <a
                         href={item.href}
                         onClick={(e) => scrollToSection(e, item.href)}
-                        className="px-6 py-2 text-base font-medium text-foreground hover:text-egx-blue hover:bg-muted rounded-lg transition-colors flex items-center justify-between"
+                        className="px-6 py-3 text-base text-muted-foreground hover:text-foreground transition-colors flex items-center justify-between"
                       >
                         <span>{item.label}</span>
                         {item.badge && (
-                          <Badge variant="secondary" className="text-xs bg-muted text-muted-foreground">
+                          <Badge variant="secondary" className="text-xs bg-muted/50 text-muted-foreground border-0">
                             {item.badge}
                           </Badge>
                         )}
@@ -168,14 +177,14 @@ const Header = () => {
                     </SheetClose>
                   ))}
 
-                  <div className="h-px bg-border my-2" />
+                  <div className="h-px bg-border/30 my-2" />
 
                   {navLinks.slice(1).map((link) => (
                     <SheetClose asChild key={link.label}>
                       <a
                         href={link.href}
                         onClick={(e) => scrollToSection(e, link.href)}
-                        className="px-4 py-3 text-base font-medium text-foreground hover:text-egx-blue hover:bg-muted rounded-lg transition-colors"
+                        className="px-4 py-4 text-lg font-medium text-muted-foreground hover:text-foreground transition-colors border-b border-border/30"
                       >
                         {link.label}
                       </a>
@@ -183,11 +192,11 @@ const Header = () => {
                   ))}
                 </nav>
 
-                <div className="mt-auto pt-8">
+                <div className="mt-auto pb-8">
                   <SheetClose asChild>
-                    <Button asChild size="lg" className="w-full">
+                    <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium h-14 rounded-full">
                       <a href="#formulario" onClick={(e) => scrollToSection(e, "#formulario")}>
-                        Fale com um especialista
+                        Fale conosco
                       </a>
                     </Button>
                   </SheetClose>
@@ -197,7 +206,7 @@ const Header = () => {
           </Sheet>
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 };
 
