@@ -27,9 +27,9 @@ const features = [
 
 const checklistItems = [
   "Organiza e lê os números da sua empresa de forma estruturada",
-  "Gera uma DRE clara, atualizável e compreensível",
+  "Gera dados de uma DRE de forma clara, atualizável e compreensível",
   "Mostra onde você ganha e onde perde dinheiro",
-  "Aponta tendências e riscos que o empresário não enxerga no dia a dia",
+  "Aponta suas despesas fixas e variáveis de forma discretizada",
 ];
 
 const containerVariants = {
@@ -78,7 +78,7 @@ const Andre = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6 leading-tight px-2"
           >
-            Conheça o <span className="text-egx-blue">anDRE</span>: o analista financeiro 24h no WhatsApp
+            Conheça o <span className="text-egx-blue">anDRE</span>: sua DRE de bolso 24/7
           </motion.h2>
 
           <motion.p
