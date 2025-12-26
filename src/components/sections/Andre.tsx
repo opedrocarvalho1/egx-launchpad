@@ -88,8 +88,8 @@ const Andre = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-2"
           >
-            O anDRE atua como um analista financeiro digital, sempre disponível
-            para traduzir dados em decisões.
+            O anDRE é o seu executivo financeiro virtual, sempre disponível para traduzir seus lançamentos direto no
+            plano de contas da sua empresa, você só lança, ele faz o trabalho difícil.
           </motion.p>
         </div>
 
@@ -102,8 +102,7 @@ const Andre = () => {
           className="bg-secondary/50 rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-10 lg:p-12 mb-8 md:mb-12"
         >
           <p className="text-sm md:text-base lg:text-lg text-foreground leading-relaxed mb-4 md:mb-6">
-            Em vez de planilhas espalhadas, relatórios atrasados e interpretações
-            subjetivas, o anDRE:
+            Em vez de planilhas espalhadas, relatórios atrasados e interpretações subjetivas, o anDRE:
           </p>
 
           <ul className="space-y-3 md:space-y-4">
@@ -119,8 +118,8 @@ const Andre = () => {
 
           <div className="mt-6 md:mt-8 p-4 md:p-6 bg-background rounded-lg md:rounded-xl border-l-4 border-egx-blue">
             <p className="text-foreground italic text-sm md:text-base lg:text-lg">
-              "O anDRE não opina. Ele mostra a realidade. A decisão continua sendo sua,
-              mas agora com clareza de cenário."
+              "O anDRE te dá clareza de suas despesas e margem de lucro real, ele te fornece dados para tomar decisões
+              sem achismo."
             </p>
           </div>
         </motion.div>
@@ -144,12 +143,8 @@ const Andre = () => {
                   <feature.icon className="h-4 w-4 md:h-5 md:w-5 text-egx-blue" />
                 </div>
                 <div className="min-w-0">
-                  <h3 className="text-sm md:text-base lg:text-lg font-bold text-foreground mb-1">
-                    {feature.title}
-                  </h3>
-                  <p className="text-xs md:text-sm lg:text-base text-muted-foreground">
-                    {feature.description}
-                  </p>
+                  <h3 className="text-sm md:text-base lg:text-lg font-bold text-foreground mb-1">{feature.title}</h3>
+                  <p className="text-xs md:text-sm lg:text-base text-muted-foreground">{feature.description}</p>
                 </div>
               </div>
             </motion.div>
