@@ -1,4 +1,5 @@
 import { Phone, Mail, Linkedin, Instagram } from "lucide-react";
+import logoEgx from "@/assets/logo-egx-branco.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -17,7 +18,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           {/* Branding */}
           <div className="lg:col-span-1">
-            <h3 className="font-display text-2xl font-medium text-foreground mb-4">EGX</h3>
+            <img src={logoEgx} alt="EGX" className="h-8 w-auto mb-5" />
             <p className="text-sm text-muted-foreground leading-relaxed">
               Inteligência financeira aplicada ao crescimento de PMEs brasileiras.
               Decisão com base em dados. Crescimento com eficiência.

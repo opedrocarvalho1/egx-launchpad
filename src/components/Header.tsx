@@ -10,6 +10,7 @@ import {
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
+import logoEgx from "@/assets/logo-egx-branco.png";
 
 const navLinks = [
   { label: "Início", href: "#inicio" },
@@ -63,9 +64,7 @@ const Header = () => {
             onClick={(e) => scrollToSection(e, "#inicio")}
             className="relative group"
           >
-            <span className="font-display text-2xl lg:text-3xl font-semibold text-foreground tracking-tight">
-              EGX
-            </span>
+            <img src={logoEgx} alt="EGX" className="h-8 lg:h-10 w-auto" />
             <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
           </a>
 
@@ -139,8 +138,8 @@ const Header = () => {
             </SheetTrigger>
             <SheetContent side="right" className="w-full max-w-sm bg-background border-l border-border/50">
               <div className="flex flex-col h-full pt-8">
-                <div className="mb-12">
-                  <span className="font-display text-2xl font-semibold text-foreground">EGX</span>
+              <div className="mb-12">
+                  <img src={logoEgx} alt="EGX" className="h-8 w-auto" />
                 </div>
 
                 <nav className="flex flex-col gap-1">
