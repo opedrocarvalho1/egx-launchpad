@@ -16,10 +16,20 @@ const Hero = () => {
       id="inicio"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img 
+          src="https://images.unsplash.com/photo-1560472355-536de3962603?w=1920&q=80" 
+          alt="Business analytics background"
+          className="w-full h-full object-cover opacity-20"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
+      </div>
+      
       {/* Background with subtle gradient and noise */}
-      <div className="absolute inset-0 bg-background noise-overlay">
+      <div className="absolute inset-0 noise-overlay">
         {/* Radial gradient accent */}
-        <div className="absolute inset-0 bg-gradient-radial from-charcoal-light/50 via-background to-background" />
+        <div className="absolute inset-0 bg-gradient-radial from-charcoal-light/50 via-transparent to-transparent" />
         
         {/* Subtle gold glow */}
         <motion.div 
