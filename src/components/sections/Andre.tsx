@@ -32,21 +32,6 @@ const checklistItems = [
   "Aponta suas despesas fixas e variáveis de forma discretizada",
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-};
-
 const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
   e.preventDefault();
   const element = document.querySelector(href);
@@ -57,115 +42,140 @@ const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) =
 
 const Andre = () => {
   return (
-    <section id="andre" className="bg-background py-12 md:py-24">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="andre" className="relative py-24 md:py-32 overflow-hidden bg-secondary">
+      {/* Decorative glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
+      
+      <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-8 md:mb-16">
-          <motion.div
+        <div className="text-center mb-16 md:mb-20">
+          <motion.span
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-egx-blue/10 rounded-full mb-3 md:mb-4"
+            className="inline-block px-4 py-2 text-xs font-medium tracking-widest uppercase text-primary border border-primary/30 rounded-full mb-6"
           >
-            <span className="text-egx-blue font-semibold text-sm md:text-base">🤖 Nosso produto principal</span>
-          </motion.div>
+            Nosso Produto Principal
+          </motion.span>
 
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6 leading-tight px-2"
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-foreground mb-6 leading-[1.15]"
           >
-            Conheça o <span className="text-egx-blue">anDRE</span>: sua DRE de bolso 24/7
+            Conheça o <span className="text-primary italic">anDRE</span>
+            <br className="hidden sm:block" />
+            <span className="text-muted-foreground">sua DRE de bolso 24/7</span>
           </motion.h2>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="divider-gold mt-8 mb-8"
+          />
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-2"
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
           >
             O anDRE é o seu executivo financeiro virtual, sempre disponível para traduzir seus lançamentos direto no
-            plano de contas da sua empresa, você só lança, ele faz o trabalho difícil.
+            plano de contas da sua empresa — você só lança, ele faz o trabalho difícil.
           </motion.p>
         </div>
 
         {/* Explanatory Box */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-secondary/50 rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-10 lg:p-12 mb-8 md:mb-12"
+          transition={{ duration: 0.8 }}
+          className="bg-card rounded-3xl p-8 md:p-12 border border-border/50 mb-12"
         >
-          <p className="text-sm md:text-base lg:text-lg text-foreground leading-relaxed mb-4 md:mb-6">
+          <p className="text-base md:text-lg text-foreground mb-8">
             Em vez de planilhas espalhadas, relatórios atrasados e interpretações subjetivas, o anDRE:
           </p>
 
-          <ul className="space-y-3 md:space-y-4">
+          <ul className="space-y-4 mb-10">
             {checklistItems.map((item, index) => (
-              <li key={index} className="flex items-start gap-2 md:gap-3">
-                <div className="flex-shrink-0 mt-0.5">
-                  <Check className="h-4 w-4 md:h-5 md:w-5 text-egx-blue" />
+              <motion.li 
+                key={index} 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="flex items-start gap-4"
+              >
+                <div className="flex-shrink-0 mt-1">
+                  <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center">
+                    <Check className="h-3 w-3 text-primary" />
+                  </div>
                 </div>
-                <span className="text-sm md:text-base text-muted-foreground">{item}</span>
-              </li>
+                <span className="text-base md:text-lg text-muted-foreground">{item}</span>
+              </motion.li>
             ))}
           </ul>
 
-          <div className="mt-6 md:mt-8 p-4 md:p-6 bg-background rounded-lg md:rounded-xl border-l-4 border-egx-blue">
-            <p className="text-foreground italic text-sm md:text-base lg:text-lg">
-              "“Com o anDRE, você enxerga suas despesas e a margem real do negócio, e toma decisões com dados, não no
-              achismo.”"
+          <div className="p-6 md:p-8 bg-background rounded-2xl border-l-2 border-primary">
+            <p className="font-display text-lg md:text-xl text-foreground italic">
+              "Com o anDRE, você enxerga suas despesas e a margem real do negócio, e toma decisões com dados, não no achismo."
             </p>
           </div>
         </motion.div>
 
         {/* Features Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-12">
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              variants={itemVariants}
-              className="p-4 md:p-6 bg-background rounded-lg md:rounded-xl border border-border hover:border-egx-blue hover:shadow-md transition-all duration-300 group"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="group p-6 md:p-8 bg-card rounded-2xl border border-border/50 hover:border-primary/30 transition-all duration-500"
             >
-              <div className="flex items-start gap-3 md:gap-4">
-                <div className="p-2 md:p-2.5 bg-egx-blue/10 rounded-lg group-hover:bg-egx-blue/20 transition-colors flex-shrink-0">
-                  <feature.icon className="h-4 w-4 md:h-5 md:w-5 text-egx-blue" />
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-primary/10 rounded-xl group-hover:bg-primary/20 transition-colors duration-500">
+                  <feature.icon className="h-5 w-5 text-primary" />
                 </div>
-                <div className="min-w-0">
-                  <h3 className="text-sm md:text-base lg:text-lg font-bold text-foreground mb-1">{feature.title}</h3>
-                  <p className="text-xs md:text-sm lg:text-base text-muted-foreground">{feature.description}</p>
+                <div>
+                  <h3 className="font-display text-lg md:text-xl font-medium text-foreground mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-sm md:text-base text-muted-foreground">
+                    {feature.description}
+                  </p>
                 </div>
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
         {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center mt-8 md:mt-12"
+          transition={{ duration: 0.6 }}
+          className="text-center"
         >
-          <Button asChild variant="hero" size="xl" className="w-full sm:w-auto">
+          <Button 
+            asChild 
+            className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium px-8 h-14 text-base rounded-full transition-all duration-300 hover:shadow-soft group"
+          >
             <a href="#formulario" onClick={(e) => scrollToSection(e, "#formulario")}>
               Quero testar o anDRE por 7 dias
-              <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
           </Button>
-          <p className="text-xs md:text-sm text-muted-foreground mt-3 md:mt-4">
+          <p className="text-sm text-muted-foreground mt-4">
             Sem compromisso • Acompanhamento guiado
           </p>
         </motion.div>

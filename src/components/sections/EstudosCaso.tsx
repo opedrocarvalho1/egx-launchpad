@@ -2,19 +2,6 @@ import { motion } from 'framer-motion';
 import { TrendingUp, DollarSign, Target, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
-
 const scrollToSection = (e: React.MouseEvent<HTMLButtonElement>, href: string) => {
   e.preventDefault();
   const element = document.querySelector(href);
@@ -46,89 +33,110 @@ export default function EstudosCaso() {
   ];
 
   return (
-    <section id="resultados" className="py-16 md:py-24 bg-background">
-      <div className="container mx-auto px-4 md:px-6">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
-          className="max-w-5xl mx-auto"
-        >
-          <motion.h2
-            variants={itemVariants}
-            className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground text-center mb-4"
+    <section id="resultados" className="relative py-24 md:py-32 overflow-hidden bg-background">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-16 md:mb-20">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="inline-block text-xs font-medium tracking-widest uppercase text-primary mb-6"
           >
-            O que muda quando a empresa para de decidir no achismo
+            Resultados
+          </motion.span>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="font-display text-3xl sm:text-4xl md:text-5xl font-medium text-foreground mb-6"
+          >
+            O que muda quando a empresa para de decidir no{" "}
+            <span className="text-primary italic">achismo</span>
           </motion.h2>
 
           <motion.p
-            variants={itemVariants}
-            className="text-base md:text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto"
           >
             Empresas que passaram pelo processo com a EGX reportam:
           </motion.p>
+        </div>
 
-          {/* Grid de Métricas */}
-          <motion.div
-            variants={containerVariants}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-12"
-          >
-            {metricas.map((metrica, i) => {
-              const Icon = metrica.icon;
-              return (
-                <motion.div
-                  key={i}
-                  variants={itemVariants}
-                  className="bg-card rounded-xl p-6 border border-border hover:border-primary/30 transition-colors text-center"
-                >
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-base md:text-lg font-semibold text-foreground mb-2">
-                    {metrica.titulo}
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    {metrica.descricao}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </motion.div>
+        {/* Grid de Métricas */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-16">
+          {metricas.map((metrica, i) => {
+            const Icon = metrica.icon;
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="group bg-card rounded-2xl p-6 md:p-8 border border-border/50 hover:border-primary/30 transition-all duration-500 text-center"
+              >
+                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/20 transition-colors duration-500">
+                  <Icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-display text-lg md:text-xl font-medium text-foreground mb-2">
+                  {metrica.titulo}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {metrica.descricao}
+                </p>
+              </motion.div>
+            );
+          })}
+        </div>
 
-          {/* Case narrativo */}
-          <motion.div
-            variants={itemVariants}
-            className="bg-secondary rounded-2xl p-6 md:p-8 border border-border"
-          >
-            <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full mb-4">
-              📊 Caso Real
-            </span>
-            <h3 className="text-lg md:text-xl font-semibold text-foreground mb-3">
-              PME do setor de serviços
-            </h3>
-            <p className="text-sm md:text-base text-muted-foreground mb-4 leading-relaxed">
-              Faturava bem, mas não tinha visão de margem por linha de serviço. 
-              Após ativação do anDRE e rotinas de leitura financeira, identificou 
-              serviços com alta demanda e baixa rentabilidade.
+        {/* Case narrativo */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="bg-secondary rounded-3xl p-8 md:p-12 border border-border/50"
+        >
+          <span className="inline-block px-4 py-2 bg-primary/10 text-primary text-xs font-medium tracking-widest uppercase rounded-full mb-6">
+            Caso Real
+          </span>
+          <h3 className="font-display text-xl md:text-2xl font-medium text-foreground mb-4">
+            PME do setor de serviços
+          </h3>
+          <p className="text-base md:text-lg text-muted-foreground mb-6 leading-relaxed">
+            Faturava bem, mas não tinha visão de margem por linha de serviço. 
+            Após ativação do anDRE e rotinas de leitura financeira, identificou 
+            serviços com alta demanda e baixa rentabilidade.
+          </p>
+          <div className="bg-card rounded-2xl p-6 border-l-2 border-primary">
+            <p className="text-base md:text-lg text-foreground font-medium">
+              Resultado: Readequou portfólio, ajustou preços e começou a crescer 
+              com melhor resultado, sem aumentar estrutura.
             </p>
-            <div className="bg-primary/5 rounded-lg p-4 border-l-4 border-primary">
-              <p className="text-sm md:text-base text-foreground font-medium">
-                Resultado: Readequou portfólio, ajustou preços e começou a crescer 
-                com melhor resultado, sem aumentar estrutura.
-              </p>
-            </div>
-          </motion.div>
+          </div>
+        </motion.div>
 
-          {/* CTA */}
-          <motion.div variants={itemVariants} className="text-center mt-10">
-            <Button
-              onClick={(e) => scrollToSection(e, '#formulario')}
-              className="h-12 md:h-14 px-6 md:px-8 text-sm md:text-base font-semibold bg-primary hover:bg-accent"
-            >
-              Quero ver exemplos próximos da minha realidade
-            </Button>
-          </motion.div>
+        {/* CTA */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mt-12"
+        >
+          <Button
+            onClick={(e) => scrollToSection(e, '#formulario')}
+            className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium px-8 h-14 text-base rounded-full transition-all duration-300 hover:shadow-soft"
+          >
+            Quero ver exemplos próximos da minha realidade
+          </Button>
         </motion.div>
       </div>
     </section>

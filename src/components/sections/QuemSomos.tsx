@@ -19,89 +19,93 @@ const pillars = [
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-};
-
 const QuemSomos = () => {
   return (
-    <section id="quem-somos" className="bg-egx-dark text-primary-foreground py-12 md:py-24">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Title */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 md:mb-8"
-        >
-          Quem é a <span className="text-egx-blue">EGX</span>
-        </motion.h2>
+    <section id="quem-somos" className="relative py-24 md:py-32 overflow-hidden bg-background">
+      {/* Decorative elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
+      </div>
+      
+      <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-16 md:mb-20">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="inline-block text-xs font-medium tracking-widest uppercase text-primary mb-6"
+          >
+            Sobre Nós
+          </motion.span>
 
-        {/* Main Text */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="max-w-4xl mx-auto text-center mb-8 md:mb-16"
-        >
-          <p className="text-base md:text-lg lg:text-xl text-primary-foreground/80 mb-4 md:mb-6">
-            A EGX é uma empresa de{" "}
-            <span className="text-egx-blue font-semibold">tecnologia e estratégia</span>{" "}
-            aplicada à gestão financeira de PMEs.
-          </p>
-          <p className="text-sm md:text-base lg:text-lg text-primary-foreground/60">
-            Nosso foco é simples: transformar a forma como o dono de empresa olha
-            para seus números, decide e cresce.
-          </p>
-        </motion.div>
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="font-display text-3xl sm:text-4xl md:text-5xl font-medium text-foreground mb-8"
+          >
+            Quem é a <span className="text-primary italic">EGX</span>
+          </motion.h2>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="max-w-3xl mx-auto space-y-4"
+          >
+            <p className="text-lg md:text-xl text-foreground">
+              A EGX é uma empresa de{" "}
+              <span className="text-primary font-medium">tecnologia e estratégia</span>{" "}
+              aplicada à gestão financeira de PMEs.
+            </p>
+            <p className="text-base md:text-lg text-muted-foreground">
+              Nosso foco é simples: transformar a forma como o dono de empresa olha
+              para seus números, decide e cresce.
+            </p>
+          </motion.div>
+        </div>
 
         {/* Pillars Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8"
-        >
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8 mb-16 md:mb-20">
           {pillars.map((pillar, index) => (
             <motion.div
               key={index}
-              variants={itemVariants}
-              className="text-center p-5 md:p-8 bg-primary-foreground/5 rounded-xl md:rounded-2xl border border-primary-foreground/10 hover:bg-primary-foreground/10 transition-all duration-300"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              className="group text-center p-8 md:p-10 bg-card rounded-2xl border border-border/50 hover:border-primary/30 transition-all duration-500"
             >
-              <div className="inline-flex p-3 md:p-4 bg-egx-blue/20 rounded-lg md:rounded-xl mb-4 md:mb-6">
-                <pillar.icon className="h-6 w-6 md:h-8 md:w-8 text-egx-blue" />
+              <div className="inline-flex p-4 bg-primary/10 rounded-2xl mb-6 group-hover:bg-primary/20 transition-colors duration-500">
+                <pillar.icon className="h-7 w-7 md:h-8 md:w-8 text-primary" />
               </div>
-              <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">{pillar.title}</h3>
-              <p className="text-sm md:text-base text-primary-foreground/60">{pillar.description}</p>
+              <h3 className="font-display text-xl md:text-2xl font-medium text-foreground mb-3">
+                {pillar.title}
+              </h3>
+              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                {pillar.description}
+              </p>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Conclusion */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-8 md:mt-16 max-w-3xl mx-auto text-center"
+          transition={{ duration: 0.8 }}
+          className="max-w-3xl mx-auto text-center"
         >
-          <p className="text-sm md:text-base lg:text-lg text-primary-foreground/70 leading-relaxed px-2">
+          <div className="divider-gold mb-8" />
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
             Criamos um ambiente em que a empresa{" "}
-            <span className="text-egx-blue font-semibold">para de "andar no escuro"</span>{" "}
+            <span className="text-primary font-medium">para de "andar no escuro"</span>{" "}
             e passa a operar com clareza, previsibilidade e disciplina financeira.
           </p>
         </motion.div>

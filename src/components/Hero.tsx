@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
@@ -14,47 +14,64 @@ const Hero = () => {
   return (
     <section
       id="inicio"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-egx-dark via-egx-dark to-egx-blue/20"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Decorative Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Glow Effect */}
-        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-egx-blue/10 rounded-full blur-[120px] animate-glow-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-egx-blue-light/10 rounded-full blur-[100px] animate-glow-pulse" style={{ animationDelay: "1.5s" }} />
+      {/* Background with subtle gradient and noise */}
+      <div className="absolute inset-0 bg-background noise-overlay">
+        {/* Radial gradient accent */}
+        <div className="absolute inset-0 bg-gradient-radial from-charcoal-light/50 via-background to-background" />
         
-        {/* Grid Pattern */}
-        <div 
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `linear-gradient(hsl(var(--egx-blue)) 1px, transparent 1px),
-                              linear-gradient(90deg, hsl(var(--egx-blue)) 1px, transparent 1px)`,
-            backgroundSize: "60px 60px",
-          }}
+        {/* Subtle gold glow */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2, delay: 0.5 }}
+          className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-primary/5 rounded-full blur-[150px]" 
         />
+
+        {/* Decorative lines */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-border/30 to-transparent" />
+          <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-border/30 to-transparent" />
+          <div className="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-border/20 to-transparent" />
+        </div>
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 pt-24 md:pt-32">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 py-32 lg:py-40">
         <div className="text-center">
+          {/* Eyebrow */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mb-8"
+          >
+            <span className="inline-block px-4 py-2 text-xs font-medium tracking-widest uppercase text-primary border border-primary/30 rounded-full">
+              Inteligência Financeira para PMEs
+            </span>
+          </motion.div>
+
           {/* Headline */}
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-primary-foreground leading-tight mb-4 md:mb-6 px-2"
+            transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium text-foreground leading-[1.1] mb-8 tracking-tight"
           >
             Eliminamos o{" "}
-            <span className="text-egx-blue">achismo financeiro</span>{" "}
-            e ajudamos PMEs brasileiras a crescer com eficiência
+            <span className="text-primary italic">achismo</span>
+            <br className="hidden sm:block" />
+            {" "}financeiro
           </motion.h1>
 
           {/* Subtitle */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="text-base sm:text-lg md:text-xl lg:text-2xl text-primary-foreground/70 mb-8 md:mb-10 max-w-4xl mx-auto leading-relaxed px-2"
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-lg md:text-xl lg:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed font-sans"
           >
-            A EGX combina inteligência artificial, análise financeira e visão de
+            Combinamos inteligência artificial, análise financeira e visão de
             negócios para transformar números dispersos em decisões claras
           </motion.p>
 
@@ -62,19 +79,25 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-            className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center mb-8 md:mb-12 px-4"
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
           >
-            <Button asChild variant="hero" size="xl" className="w-full sm:w-auto">
+            <Button 
+              asChild 
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium px-8 h-14 text-base rounded-full transition-all duration-300 hover:shadow-soft group"
+            >
               <a href="#formulario" onClick={(e) => scrollToSection(e, "#formulario")}>
                 Falar com um especialista
-                <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
             </Button>
-            <Button asChild variant="heroOutline" size="xl" className="w-full sm:w-auto">
+            <Button 
+              asChild 
+              variant="ghost"
+              className="text-muted-foreground hover:text-foreground font-medium px-8 h-14 text-base rounded-full border border-border/50 hover:border-border transition-all duration-300"
+            >
               <a href="#andre" onClick={(e) => scrollToSection(e, "#andre")}>
-                <Play className="mr-2 h-4 w-4 md:h-5 md:w-5" />
-                Ver o anDRE em ação
+                Conhecer o anDRE
               </a>
             </Button>
           </motion.div>
@@ -83,21 +106,31 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-            className="flex items-center justify-center gap-2 text-primary-foreground/60 px-4"
+            transition={{ duration: 1, delay: 1.2 }}
+            className="pt-8 border-t border-border/30"
           >
-            <span className="text-lg md:text-xl">✨</span>
-            <p className="text-xs sm:text-sm md:text-base">
+            <p className="text-sm text-muted-foreground">
               Metodologias aplicadas em negócios que somam{" "}
-              <span className="text-egx-blue font-semibold">R$ 200M+</span>{" "}
-              em faturamento anual.
+              <span className="text-primary font-medium">R$ 200M+</span>{" "}
+              em faturamento anual
             </p>
           </motion.div>
         </div>
       </div>
 
-      {/* Bottom Gradient Fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 1.5 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+      >
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="w-px h-16 bg-gradient-to-b from-primary/50 to-transparent"
+        />
+      </motion.div>
     </section>
   );
 };
